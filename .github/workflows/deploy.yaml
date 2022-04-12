@@ -4,16 +4,16 @@ on:
     tags: 
     - 'v*' # push if tag starts with v
     - '!v*-alpha' # push tags that starts with v except those that ends with alpha
-  jobs:
-    deploy_to_heroku:
-      runs-on: ubuntu-latest
-      steps:
-      - name: Checkout src
-        uses: actions/checkout@v2
-      - name: Deploy
-        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "paf-revision1-1204" #Must be unique in Heroku
-          heroku_email: ${{secrets.email}}
-          branch: ${{github.ref_name}}
+jobs:
+  deploy_to_heroku:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout src
+      uses: actions/checkout@v2
+    - name: Deploy
+      uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "paf-revision1-1204" #Must be unique in Heroku
+        heroku_email: ${{secrets.email}}
+        branch: ${{github.ref_name}}
