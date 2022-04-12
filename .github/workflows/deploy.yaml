@@ -8,7 +8,7 @@ jobs:
   deploy_to_heroku:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout src
+    - name: Checkout SRC
       uses: actions/checkout@v2
     - name: Deploy
       uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
